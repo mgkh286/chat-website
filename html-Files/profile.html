@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MY-Chat</title>
+  <link rel="stylesheet" href="../assets/bootstrap4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/bootstrap4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/bootstrap4.1/bootstrap-social/bootstrap-social.css">
+  <script src="../assets/bootstrap4.1/popperJs/popperV1.14.js"></script>
+  <script src="../assets/bootstrap4.1/jquery/jqueryV3.3.1.js"></script>
+  <script src="../assets/bootstrap4.1/js/bootstrap.js"></script>
+  <script src="../assets/bootstrap4.1/js/bootstrap.min.js"></script>
+  <script src="../assets/bootstrap4.1/sweetAlert/sweetAlert.js"></script>
+  <link rel="stylesheet" href="../assets/bootstrap4.1/fontawesome/fontawesome-5.7.1/css/all.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/chatStyle.css">
+
+</head>
+
+<body>
+  <ul class="nav justify-content-center fixed-top">
+    <li class="nav-item col-10" style="box-shadow: 0px 0px 20px black; border-bottom-right-radius: 50px;border-bottom-left-radius: 50px; font-size: 25px; text-align: center; font-weight: bolder; background-color: rgba(20, 20, 58, 0.562)">
+      MY-Chat
+    </li>
+    <span id="action_menu_btn"><i id="menu" class="fas fa-bars"></i></span>
+    <div class="action_menu">
+        <ul>
+            <li onClick="show('disp')">TimeLine</li>
+            <li onClick="show('allUsers')">All Users</li>
+            <li onClick="show('myFrnds')">My Friends</li>
+            <li onClick="show('frndRequests')">Frnd Requests</li>
+            <li onClick="show('pendingRequests')">Pending Requests</li>
+            <li onClick="window.location = './chat.html'">Messenger</li>
+            <li onClick="logOut()">LogOut</li>
+        </ul>
+    </div>
+  </ul>
+  <br>
+  <div id="disp">
+    <div id="mainDiv" style="margin-top: 70px;" class="col-12 col-lg-10 offset-lg-1">
+      <div style=" text-align: center;">
+        <img style="background-color: white;width: 150px; height: 150px; border-radius: 50%; border: 5px solid white; box-shadow: 0px 0px 10px 5px gray;"
+          id="pImg">
+      </div>
+<br><br>
+      <h2 id="name" class="col-12 col-lg-8 offset-lg-2" style="text-shadow: 0px 0px 5px white; ;font-weight: bolder ;border-bottom: 1px dashed rgba(119, 119, 119, 0.726); text-align: center; padding-bottom: 3px;border-radius: 50%">
+        Demo
+      </h2>
+      <div class="col-12 col-lg-8 offset-lg-2">
+        <div style="margin-top: 15px;padding: 10px;box-shadow: 0px 0px 10px gray;border-radius: 10px;">
+
+          <h3 style=" text-align: center;text-shadow: 0px 0px 5px white;">
+            Info
+          </h3>
+
+          <ul class="list-group">
+            <li id="email" class="list-group-item list-group-item-info text-center"></span></li>
+            <br>
+            <li id="num" class="list-group-item list-group-item-info text-center"></li>
+            <br>
+            <li id="dob" class="list-group-item list-group-item-info text-center"></li>
+            <br>
+            <li id="address" class="list-group-item list-group-item-info text-center"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="allUsers" style="margin-top: 70px; display: block;" class="col-12 col-lg-10 offset-lg-1">
+</div >
+<div id="myFrnds" style="margin-top: 70px; display: none;" class="col-12 col-lg-10 offset-lg-1">
+</div>
+<div id="frndRequests" style="margin-top: 70px; display: none;" class="col-12 col-lg-10 offset-lg-1">
+</div>
+<div  id="pendingRequests" style="margin-top: 70px; display: none;" class="col-12 col-lg-10 offset-lg-1">
+</div>
+<div id="usrPro"  style="margin-top: 70px; display: none;" class="col-12 col-lg-10 offset-lg-1">
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBjjpDjoyFTe63gjPkHRA4Dm7UMlblCeIk",
+    authDomain: "chat-app-7365b.firebaseapp.com",
+    databaseURL: "https://chat-app-7365b.firebaseio.com",
+    projectId: "chat-app-7365b",
+    storageBucket: "chat-app-7365b.appspot.com",
+    messagingSenderId: "833686421119"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="../assets/js/authontication.js"></script>
+  <script src="../assets/js/profile.js"></script>
+  <script>
+      $(document).ready(function(){
+      $('#action_menu_btn').click(function(){
+          $('.action_menu').toggle();
+      });
+          });
+      </script>
+
+</body>
+
+</html>

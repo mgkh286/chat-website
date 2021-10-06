@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MY-Chat</title>
+    <link rel="stylesheet" href="./assets/bootstrap4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/bootstrap4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap4.1/bootstrap-social/bootstrap-social.css">
+    <script src="./assets/bootstrap4.1/popperJs/popperV1.14.js"></script>
+    <script src="./assets/bootstrap4.1/jquery/jqueryV3.3.1.js"></script>
+    <script src="./assets/bootstrap4.1/js/bootstrap.js"></script>
+    <script src="./assets/bootstrap4.1/js/bootstrap.min.js"></script>
+    <script src="./assets/bootstrap4.1/sweetAlert/sweetAlert.js"></script>
+    <link rel="stylesheet" href="./assets/bootstrap4.1/fontawesome/fontawesome-5.7.1/css/all.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/preLoader.css">
+  <link rel="manifest" href="./manifest.json">
+
+    
+</head>
+
+<body>
+    <ul class="nav justify-content-center fixed-top">
+        <li class="nav-item col-10" style="box-shadow: 0px 0px 20px black; border-bottom-right-radius: 50px;border-bottom-left-radius: 50px; font-size: 25px; text-align: center; font-weight: bolder; background-color: rgba(20, 20, 58, 0.562)">
+            MY-Chat
+        </li>
+    </ul>
+    <br>
+    <div id="loader" style="display: none;">
+            <div class="container-fluid">
+                    <div class="container">
+                        <!-- <h3 class="h3 text-white">Preloader Demo - 1 </h3> -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="preloader1">
+                                    <div class="loader loader-inner-1">
+                                        <div class="loader loader-inner-2">
+                                            <div class="loader loader-inner-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+
+    <div id="disp">
+
+        <div style="margin-top: 50px;">
+            <div id="signInForm" style="display: block;" class="bs br col-10 offset-1 col-lg-8 offset-lg-2 col-sm-8 offset-sm-2">
+                <h3 style="text-align: center;">SignIn Form</h3>
+                <br>
+                <div class="row">
+                    <div style="margin-bottom: 5px;" class="col-12 col-lg-5 input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">
+                                <li class=" fas fa-envelope"></li>
+                            </span>
+                        </div>
+                        <input id="signInEmail" type="text" class="form-control" placeholder="Example@abc.xyz">
+                    </div>
+                    <br>
+                    <div style="margin-bottom: 5px;" class="col-12 col-lg-5 input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input id="signInPassword" type="password" class="form-control" placeholder="***********">
+                    </div>
+                    <div class="col">
+                        <button onClick="signIn()" class="btn col-12 col-lg-12">SignIn</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div onClick="signUpSocial('facebook')" style="margin-bottom: 5px;" class="col col-10 offset-1 col-lg-3 btn btn-social btn-facebook">
+                        <li class="fab fa-facebook" style="font-size: 20px;"></li>SignIn with FB
+                    </div>
+                    <div onClick="signUpSocial('google')" style="margin-bottom: 5px;" class="col col-10 offset-1 col-lg-3 btn btn-social btn-google">
+                        <li class="fab fa-google" style="font-size: 20px;"></li>SignIn with Google
+                    </div>
+                    <button onClick="openSignUpForm()" style="margin-bottom: 5px;" class="col col-10 offset-1 col-lg-2 btn btn-danger btn-social">
+                        <li class="fas fa-sign-in-alt" style="font-size: 20px;"></li>SignUp
+                    </button>
+                </div>
+                <br>
+            </div>
+            <div id="signUpForm" style="display: none;">
+                <div style="margin-top: 50px;">
+                    <div class="bs br col-10 offset-1 col-lg-8 offset-lg-2 col-sm-8 offset-sm-2">
+                        <h3 style="text-align: center;">SignUp Form</h3>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 col-lg-8 offset-lg-2 input-group">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input id="image" type="file" class="custom-file-input" id="inputGroupFile02">
+                                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose
+                                            Profile Picture</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                                        <li class=" fas fa-envelope"></li>
+                                    </span>
+                                </div>
+                                <input id="name" type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                                        <li class=" fas fa-envelope"></li>
+                                    </span>
+                                </div>
+                                <input id="email" type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="password" type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="confirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="dob" onfocus="this.setAttribute('type','date')" onblur="this.setAttribute('type', 'text')"
+                                    type="text" class="form-control" placeholder="Date of Birth">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="number" type="number" class="form-control" placeholder="Number">
+                            </div>
+                            <div style="margin-bottom: 5px;" class="col-12 col-lg-12 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input id="address" type="text" class="form-control" placeholder="Address">
+                            </div>
+
+                            <button onClick="signUp()" style="margin-top: 5px;margin-bottom: 5px;" class="col col-10 offset-1 col-lg-2 offset-lg-5 btn btn-info btn-social">
+                                <li class="fas fa-sign-in-alt" style="font-size: 20px;"></li>SignUp
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+<!-- Here is your  database link  -->
+                <script src="./assets/js/authontication.js"></script>
+                <script>
+                    function changeType(ths) {
+                        ths.setAttribute('type', 'date')
+                    }
+                </script>
+</body>
+
+</html>

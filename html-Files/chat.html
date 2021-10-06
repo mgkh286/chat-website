@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MY-Chat</title>
+    <link rel="stylesheet" href="../assets/bootstrap4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/bootstrap4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap4.1/bootstrap-social/bootstrap-social.css">
+    <script src="../assets/bootstrap4.1/popperJs/popperV1.14.js"></script>
+    <script src="../assets/bootstrap4.1/jquery/jqueryV3.3.1.js"></script>
+    <script src="../assets/bootstrap4.1/js/bootstrap.js"></script>
+    <script src="../assets/bootstrap4.1/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap4.1/sweetAlert/sweetAlert.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap4.1/fontawesome/fontawesome-5.7.1/css/all.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/chatStyle.css">
+</head>
+
+<body>
+    <ul class="nav justify-content-center fixed-top">
+        <li class="nav-item col-10" style="box-shadow: 0px 0px 20px black; border-bottom-right-radius: 50px;border-bottom-left-radius: 50px; font-size: 25px; text-align: center; font-weight: bolder; background-color: rgba(20, 20, 58, 0.562)">
+            MY-Chat
+        </li>
+        <span id="action_menu_btn"><i id="menu" class="fas fa-bars"></i></span>
+        <div class="action_menu">
+            <ul>
+                <li onClick="window.location = './profile.html'">TimeLine</li>
+                <li onClick="logOut()">LogOut</li>
+            </ul>
+        </div>
+    </ul>
+    <br><br><br>
+    <div id="pc">
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100">
+                <div class="col-md-4 col-xl-3 chat">
+                    <div class="card mb-sm-3 mb-md-0 contacts_card">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body contacts_body">
+                            <ul id="contact" class="contacts">
+                                <h2 align="center">No Users</h2>
+                            </ul>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-xl-6 chat">
+                    <div class="card">
+                        <div class="card-header msg_head">
+                            <div id="chatHeader" class="d-flex bd-highlight">
+
+                            </div>
+                        </div>
+                        <div id="chatBody" class="card-body msg_card_body">
+                            <h4 align="center">Pleas select user first</h4>
+                        </div>
+                        <div id="textBar" class="card-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile" style="display: none;">
+        <div class="container-fluid h-100">
+            <div class="row justify-content-center h-100">
+                <div id="mbUsers" class="col-10 chat">
+                    <div class="card mb-sm-3 mb-md-0 contacts_card">
+                        <div class="card-header">
+
+                        </div>
+                        <div class="card-body contacts_body">
+                            <ul id="mbContact" class="contacts">
+                                <h2 align="center">No Users</h2>
+                            </ul>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                <div id="mbChat" style="display: none;" class="col-10 chat">
+                    <div class="card">
+                        <div class="card-header msg_head">
+                            <div>
+                                <i onClick="goBack()" class="fas fa-backward"> Go Back</i>
+                            </div>
+                            <br>
+                            <div id="mbChatHeader" class="d-flex bd-highlight">
+
+                            </div>
+                        </div>
+                        <div id="mbChatBody" class="card-body msg_card_body">
+                            <h4 align="center">Pleas select user first</h4>
+                        </div>
+                        <div id="mbTextBar" class="card-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyBjjpDjoyFTe63gjPkHRA4Dm7UMlblCeIk",
+            authDomain: "chat-app-7365b.firebaseapp.com",
+            databaseURL: "https://chat-app-7365b.firebaseio.com",
+            projectId: "chat-app-7365b",
+            storageBucket: "chat-app-7365b.appspot.com",
+            messagingSenderId: "833686421119"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="../assets/js/authontication.js"></script>
+    <script src="../assets/js/chat.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#action_menu_btn').click(function () {
+                $('.action_menu').toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
